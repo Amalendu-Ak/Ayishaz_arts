@@ -59,7 +59,7 @@ notebook_shim==0.2.3
 numpy==1.25.0
 opencv-python==4.8.1.78
 overrides==7.4.0
-packaging==23.2
+packaging==26.0
 panda==0.3.1
 pandocfilters==1.5.0
 parso==0.8.3
