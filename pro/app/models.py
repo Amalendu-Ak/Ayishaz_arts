@@ -2,6 +2,7 @@ from django.db import models
 
 class user(models.Model):
     uid=models.AutoField(primary_key=True)
+    utype=models.CharField(max_length=30)
     uname=models.CharField(max_length=30)
     adrs = models.CharField(max_length=200)
     eml = models.CharField(max_length=30)

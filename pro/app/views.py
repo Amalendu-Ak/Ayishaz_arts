@@ -17,7 +17,7 @@ def log(request):
         p=request.POST['p']
         try:
             data2=user.objects.get(uname=un)
-            if(data2.uname=="admin"):
+            if(data2.utype=="admin"):
                 if(data2.pas==p):
                     request.session['aid']=un
                     return redirect(adash)
@@ -79,6 +79,7 @@ def reset_password(request, token):
 
 def reg(request):
     if request.method=='POST':
+        ut = request.POST['ut']
         un = request.POST['un']
         a = request.POST['a']
         e = request.POST['e']
@@ -96,7 +97,7 @@ def reg(request):
             elif len(p) < 8:
                 messages.error(request, "Password must be at least 8 characters long.")
             else:
-                data=user.objects.create(uname=un,adrs=a,eml=e,phn=ph,pas=p)
+                data=user.objects.create(utype=ut,uname=un,adrs=a,eml=e,phn=ph,pas=p)
                 data.save()
                 return render(request, 'login.html',{'d':data})
         except Exception:
